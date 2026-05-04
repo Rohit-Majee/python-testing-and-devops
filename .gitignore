@@ -1,0 +1,50 @@
+# ========================
+# Python & Bytecode
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ========================
+# Virtual Environments
+# ========================
+# (Covers standard venv and uv defaults)
+venv/
+.venv/
+env/
+.env/
+
+# ========================
+# Testing & Coverage (Pytest)
+# ========================
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+
+# ========================
+# Environment Variables & Secrets
+# ========================
+# NEVER commit your secrets!
+.env
+.env.local
+*.pem
+
+# ========================
+# IDEs & Editors
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ========================
+# Docker
+# ========================
+# Ignore docker-related local data if you ever use volumes
+.docker/
+docker-compose.override.yml
