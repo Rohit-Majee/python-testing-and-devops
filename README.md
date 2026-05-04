@@ -1,62 +1,186 @@
-# Task Manager API - DevOps & Testing Workshop
+# 🚀 Task Manager API - DevOps & Testing Workshop
 
-A lightweight, fully functional RESTful API built with **Python** and **Flask**, designed as a hands-on project for learning Fullstack Testing and DevOps practices.
+A lightweight, fully functional RESTful API built with **Python** and **Flask**, designed as a hands-on project for learning **Fullstack Testing** and **DevOps practices**.
 
-This repository demonstrates modern software engineering workflows, including unit and integration testing with **pytest**, continuous integration (CI) using **GitHub Actions**, and containerization with **Docker**.
+This repository demonstrates modern software engineering workflows, including:
 
-## Features
-
-- **RESTful API:** Full CRUD operations (Create, Read, Update, Delete) for managing tasks.
-- **Input Validation:** Custom validation logic ensuring data integrity.
-- **Automated Testing:** Comprehensive unit and integration tests using `pytest` with coverage reporting.
-- **Flexible Package Management:** Setup instructions provided for both `uv` (ultra-fast) and standard Python `pip`.
-- **CI/CD Pipeline:** Automated testing and Docker image builds via GitHub Actions.
-- **Containerized:** Ready-to-deploy `Dockerfile` for seamless deployment.
+- Unit & integration testing with **pytest**
+- Continuous Integration (CI) using **GitHub Actions**
+- Containerization with **Docker**
 
 ---
 
-## Prerequisites
+## ✨ Features
 
-Make sure you have the following installed on your local machine:
+- 🔹 **RESTful API** – Full CRUD operations (Create, Read, Update, Delete)
+- 🔹 **Input Validation** – Custom validation logic for data integrity
+- 🔹 **Automated Testing** – Unit & integration tests with coverage reports
+- 🔹 **Flexible Package Management** – Supports both `uv` and `pip`
+- 🔹 **CI/CD Pipeline** – Automated testing & Docker builds via GitHub Actions
+- 🔹 **Containerized** – Ready-to-deploy with Docker
 
-- [Python 3.10+](https://www.python.org/downloads/)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+---
+
+## 📋 Prerequisites
+
+Ensure you have the following installed:
+
+- Python 3.10+
+- Docker Desktop
 - Git
-- _(Optional but recommended)_ [uv](https://docs.astral.sh/uv/) for blazing-fast dependency management.
+- _(Optional but recommended)_ `uv` (for faster dependency management)
 
 ---
 
-## Local Development Setup
+## 🛠️ Local Development Setup
 
-**1. Clone the repository**
+### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/your-org/task-manager-workshop.git](https://github.com/your-org/task-manager-workshop.git)
+git clone https://github.com/your-org/task-manager-workshop.git
 cd task-manager-workshop
-2. Create a virtual environment and install dependenciesYou can set up your local environment using either uv (recommended for speed) or the standard Python venv module.Option A: Using uv (Recommended)Bash# Create the environment (.venv by default)
+```
+
+---
+
+### 2. Setup Virtual Environment & Install Dependencies
+
+You can use either **uv (recommended)** or standard **pip**.
+
+#### ⚡ Option A: Using `uv` (Recommended)
+
+```bash
+# Create virtual environment
 uv venv
 
-# Activate it (macOS/Linux)
+# Activate (macOS/Linux)
 source .venv/bin/activate
-# Activate it (Windows)
+
+# Activate (Windows)
 .venv\Scripts\activate
 
 # Install dependencies
 uv pip install -r requirements.txt
-Tip: You can also use uv run python app.py to run scripts without manually activating the environment!Option B: Using standard pip and venvBash# Create the environment named .venv
+```
+
+💡 Tip:
+
+```bash
+uv run python app.py
+```
+
+---
+
+#### 🐍 Option B: Using `pip` and `venv`
+
+```bash
+# Create virtual environment
 python -m venv .venv
 
-# Activate it (macOS/Linux)
+# Activate (macOS/Linux)
 source .venv/bin/activate
-# Activate it (Windows)
+
+# Activate (Windows)
 .venv\Scripts\activate
 
-# Upgrade pip (best practice) and install dependencies
+# Upgrade pip & install dependencies
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-Running the ApplicationTo start the Flask development server:Bashpython app.py
-The API will be available at http://127.0.0.1:5000.API EndpointsMethodEndpointDescriptionRequest Body (JSON)GET/tasksRetrieve all tasksNonePOST/tasksCreate a new task{"title": "string", "description": "string"}GET/tasks/<id>Retrieve a specific taskNonePUT/tasks/<id>Update an existing task{"title": "string", "done": boolean}DELETE/tasks/<id>Delete a taskNoneRunning TestsThis project uses pytest for testing. To run the test suite and view the code coverage report:Bashpytest --cov=. --cov-report=term-missing
-This will execute both the unit tests (tests/test_utils.py) and integration tests (tests/test_app.py), ensuring your core logic and API endpoints function correctly.Docker ContainerizationYou can run the application entirely within Docker, ensuring it runs identically across all environments.1. Build the Docker ImageBashdocker build -t task-manager-api .
-2. Run the ContainerBashdocker run -p 5000:5000 task-manager-api
-The API is now accessible at http://localhost:5000.CI/CD Pipeline (GitHub Actions)This repository includes a GitHub Actions workflow (.github/workflows/ci.yml) that automatically triggers on every push or pull request to the main branch.The pipeline performs the following steps:Checks out the code.Sets up Python 3.10.Installs dependencies.Runs the full pytest suite with coverage.(Optional/On Push to Main) Builds and pushes the Docker image to Docker Hub.Note: To enable Docker Hub pushes, ensure you have added DOCKER_USERNAME and DOCKER_PASSWORD to your GitHub Repository Secrets.
 ```
+
+---
+
+## ▶️ Running the Application
+
+```bash
+python app.py
+```
+
+📍 API will be available at:
+http://127.0.0.1:5000
+
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint    | Description            | Request Body                                 |
+| ------ | ----------- | ---------------------- | -------------------------------------------- |
+| GET    | /tasks      | Retrieve all tasks     | None                                         |
+| POST   | /tasks      | Create a new task      | {"title": "string", "description": "string"} |
+| GET    | /tasks/<id> | Retrieve specific task | None                                         |
+| PUT    | /tasks/<id> | Update a task          | {"title": "string", "done": boolean}         |
+| DELETE | /tasks/<id> | Delete a task          | None                                         |
+
+---
+
+## 🧪 Running Tests
+
+```bash
+pytest --cov=. --cov-report=term-missing
+```
+
+✔ Runs:
+
+- Unit tests → tests/test_utils.py
+- Integration tests → tests/test_app.py
+
+---
+
+## 🐳 Docker Containerization
+
+### 1. Build Docker Image
+
+```bash
+docker build -t task-manager-api .
+```
+
+### 2. Run Container
+
+```bash
+docker run -p 5000:5000 task-manager-api
+```
+
+📍 Access API at:
+http://localhost:5000
+
+---
+
+## ⚙️ CI/CD Pipeline (GitHub Actions)
+
+Workflow file:
+.github/workflows/ci.yml
+
+### 🔄 Pipeline Steps
+
+- Checkout repository
+- Setup Python 3.10
+- Install dependencies
+- Run pytest with coverage
+- (On push to main) Build & push Docker image
+
+---
+
+## 📦 Tech Stack
+
+- **Backend:** Flask (Python)
+- **Testing:** pytest
+- **CI/CD:** GitHub Actions
+- **Containerization:** Docker
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this repo and submit pull requests. Suggestions and improvements are always welcome!
+
+---
+
+## 📄 License
+
+This project is for educational purposes. Add a license if needed.
+
+---
+
+## ⭐ Support
+
+If you found this helpful, consider giving it a star ⭐
